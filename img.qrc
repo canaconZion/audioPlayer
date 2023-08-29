@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/back">
+        <file alias="dog">img/26294273_0_final.png</file>
+        <file alias="man">img/img-9pBA5LXo71hqUu8tsn6aKGB8.png</file>
+    </qresource>
+</RCC>

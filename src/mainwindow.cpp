@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "include/mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QDebug>
@@ -31,11 +31,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::selectFile()
 {
-    QString source_path = "D:/video/videos";
+    QString source_path = "D:/Download/Audio";
     QString s = QFileDialog::getOpenFileName(
                 this, QStringLiteral("选择要播放的文件"),
                 source_path,
-                QStringLiteral("视频文件 (*.flv *.rmvb *.avi *.MP4 *.mkv);;") + QStringLiteral("音频文件 (*.mp3 *.wma *.wav);;") + QStringLiteral("所有文件 (*.*)"));
+                QStringLiteral("音频文件 (*.mp3 *.wma *.wav);;") + QStringLiteral("视频文件 (*.flv *.rmvb *.avi *.MP4 *.mkv);;") + QStringLiteral("所有文件 (*.*)"));
     if (!s.isEmpty())
     {
         source_file = s;
@@ -47,6 +47,7 @@ void MainWindow::selectFile()
 void MainWindow::playAudio()
 {
     decode_thread->start();
+    qDebug() << "Start play";
     emit sigStartPlay(source_file);
     play->setEnabled(false);
 

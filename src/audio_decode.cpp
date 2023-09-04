@@ -1,4 +1,4 @@
-#include "audio_decode.h"
+#include "include/audio_decode.h"
 
 #define MAX_AUDIO_FRAME_SIZE 192000 // 1 second of 48khz 32bit audio
 
@@ -39,7 +39,7 @@ AudioDecod::~AudioDecod()
 
 int AudioDecod::decodeThread(QString playpath)
 {
-
+    printf("Start to play");
     QByteArray byteArray = playpath.toUtf8();
     char *filepath = byteArray.data();
     pFormatCtx = avformat_alloc_context();

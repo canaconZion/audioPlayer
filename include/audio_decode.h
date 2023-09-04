@@ -20,7 +20,6 @@ public:
     bool isPlay;
     bool isPause;
     bool isOver;
-    int decodeThread(QString file_path);
 
     // ffmpeg
     AVFormatContext	*pFormatCtx;
@@ -37,6 +36,10 @@ public:
     int index = 0;
     int64_t in_channel_layout;
     struct SwrContext *au_convert_ctx;
+
+
+public slots:
+    int decodeThread(QString file_path);
 };
 
 #endif // AUDIO_DECODE_H
